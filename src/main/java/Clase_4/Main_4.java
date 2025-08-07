@@ -27,6 +27,13 @@ public class Main_4 {
                 for (int i = 0; i < arrayNum.length; i++){
                     arrayNum[i] = numRandom.nextInt(10) + 1;
                 }
+
+                System.out.println("Array desordenado: ");
+                mostrarArray(arrayNum);
+
+                System.out.println("Array ordenado con burbujeo: ");
+                ordenamientoBurbuja(arrayNum);
+                mostrarArray(arrayNum);
                 break;
 
         }
@@ -60,8 +67,17 @@ public static void mostrarArray(int[] array){
         }
 }
 
-public static void ordenamientoBurbuja (int[] array){
-
-}
+public static void ordenamientoBurbuja(int[] array) {
+        int n = array.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (array[j] > array[j + 1]) {
+                    int varTemporal = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = varTemporal;
+                }
+            }
+        }
+    }
 
 }
