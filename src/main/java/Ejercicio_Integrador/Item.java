@@ -9,15 +9,7 @@ public class Item {
         this.producto = producto;
     }
 
-    public double precioTotal(){
-        return cantidad * producto.getPrecio();
-    }
-
-    public int getCantidad() {
-        return cantidad;
-    }
-
-    public Producto getProducto() {
-        return producto;
+    public double calcularSubtotal() {
+        return this.cantidad * this.producto.getPrecio();
     }
 }

@@ -35,7 +35,7 @@ public class ExamenDeMoto extends Examen{
         return resultado;
     }
 
-    public boolean aproboMayorLimiteCilindrada(){
+    private boolean aproboMayorLimiteCilindrada(){
         boolean resultado = false;
         if (aproboCircuito()){
             resultado = true;
@@ -43,7 +43,7 @@ public class ExamenDeMoto extends Examen{
         return resultado;
     }
 
-    public boolean aproboCircuito (){
+    private boolean aproboCircuito (){
         boolean resultado = true;
         for (int i = 0; i<circuitos.size(); i++){
             if (!circuitos.get(i).aprobo()){
@@ -54,7 +54,7 @@ public class ExamenDeMoto extends Examen{
         return resultado;
     }
 
-    public int cantCircuitosDesaprobados (){
+    private int cantCircuitosDesaprobados (){
         int desaprobados = 0;
         for (int i = 0; i<circuitos.size(); i++){
             if (!circuitos.get(i).aprobo()){
@@ -64,7 +64,7 @@ public class ExamenDeMoto extends Examen{
         return desaprobados;
     }
 
-    public int tiempoCircuitos (){
+    private int tiempoCircuitos (){
         int tiempo = 0;
         for (int i = 0; i<circuitos.size(); i++){
             tiempo += circuitos.get(i).getTiempoSegundos();
@@ -73,7 +73,7 @@ public class ExamenDeMoto extends Examen{
         return tiempo;
     }
 
-    public boolean aproboMenorLimiteCilindrada (){
+    private boolean aproboMenorLimiteCilindrada (){
         boolean resultado = false;
         int desaprobados = cantCircuitosDesaprobados();
         int tiempo = tiempoCircuitos();

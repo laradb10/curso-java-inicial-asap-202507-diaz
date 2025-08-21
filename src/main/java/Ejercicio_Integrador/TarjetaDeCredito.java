@@ -1,5 +1,4 @@
 package Ejercicio_Integrador;
-
 import com.github.sanchezih.util.Fecha;
 
 public class TarjetaDeCredito extends MedioDePago{
@@ -16,7 +15,7 @@ public class TarjetaDeCredito extends MedioDePago{
     }
 
     @Override
-    public double pagar(double monto, Fecha fechaCompra) {
+    public double pagar(double monto, CarritoDeCompra carrito) {
         double montoFinal = monto;
         if (this.cuotas > 1){
             double aumento = monto * AUMENTO_POR_CUOTAS * this.cuotas;

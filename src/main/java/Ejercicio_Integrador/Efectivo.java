@@ -1,5 +1,4 @@
 package Ejercicio_Integrador;
-
 import com.github.sanchezih.util.Fecha;
 
 public class Efectivo extends MedioDePago{
@@ -12,14 +11,10 @@ public class Efectivo extends MedioDePago{
         this.esConsumidorFinal = esConsumidorFinal;
     }
 
-    public boolean isEsConsumidorFinal() {
-        return esConsumidorFinal;
-    }
-
     @Override
-    public double pagar(double monto, Fecha fechaCompra) {
+    public double pagar(double monto, CarritoDeCompra carrito) {
         double montoFinal = monto;
-        if (esConsumidorFinal) {
+        if (this.esConsumidorFinal) {
             montoFinal = montoFinal - (ES_CONSUMIDOR_FINAL * montoFinal);
         } else {
             montoFinal = montoFinal - (NO_ES_CONSUMIDOR_FINAL * montoFinal);

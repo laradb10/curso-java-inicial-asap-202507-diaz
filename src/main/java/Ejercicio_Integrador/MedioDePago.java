@@ -12,6 +12,6 @@ public abstract class MedioDePago {
         return fecha;
     }
 
-    public abstract double pagar(double monto, Fecha fechaCompra);
+    public abstract double pagar(double monto, CarritoDeCompra carrito);
 
 }

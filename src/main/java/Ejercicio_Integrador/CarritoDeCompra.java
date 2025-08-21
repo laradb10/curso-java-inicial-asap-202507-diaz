@@ -8,7 +8,6 @@ public class CarritoDeCompra {
     private MedioDePago medioDePago;
     private Fecha fecha;
 
-
     public CarritoDeCompra(String id, List<Item> items, MedioDePago medioDePago, Fecha fecha) {
         this.id = id;
         this.items = items;
@@ -24,16 +23,18 @@ public class CarritoDeCompra {
         return medioDePago;
     }
 
+    public Fecha getFecha() {
+        return fecha;
+    }
+
     public double calcularPrecioFinal() {
         double precioBruto = 0.0;
 
         for (Item item : items) {
-            precioBruto += item.getCantidad() * item.getProducto().getPrecio();
+            precioBruto += item.calcularSubtotal();
         }
 
-        double precioFinal = medioDePago.pagar(precioBruto, this.fecha);
+        double precioFinal = medioDePago.pagar(precioBruto, this);
         return precioFinal;
     }
-
-
 }

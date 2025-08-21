@@ -4,8 +4,7 @@ import com.github.sanchezih.util.Fecha;
 public class TransferenciaBancaria extends MedioDePago{
 
     private String cbu;
-    private static final double RECARGO_BASE = 0.05;
-    private static final double RECARGO_ADICIONAL = 0.05;
+    private static final double RECARGO = 0.05;
     private static final int DIAS_PARA_RECARGO_EXTRA = 10;
 
     public TransferenciaBancaria(Fecha fecha, String cbu) {
@@ -14,12 +13,12 @@ public class TransferenciaBancaria extends MedioDePago{
     }
 
     @Override
-    public double pagar(double monto, Fecha fechaCompra) {
-        double montoFinal = monto + (monto * RECARGO_BASE);
+    public double pagar(double monto, CarritoDeCompra carrito) {
+        double montoFinal = monto + (monto * RECARGO);
 
-        int dias = Fecha.diasTranscurridosEntreFechas(fechaCompra, this.getFecha());
+        int dias = Fecha.diasTranscurridosEntreFechas(carrito.getFecha(), this.getFecha());
         if (dias > DIAS_PARA_RECARGO_EXTRA) {
-            montoFinal = montoFinal + (monto * RECARGO_ADICIONAL);
+            montoFinal = montoFinal + (monto * RECARGO);
         }
 
         return montoFinal;
