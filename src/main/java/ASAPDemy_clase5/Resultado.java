@@ -1,4 +1,4 @@
-package ASAPDemy;
+package ASAPDemy_clase5;
 
 public enum Resultado {
     SUSCRIPTO_OK("El usuario se suscribió exitosamente al curso."),
